@@ -18,7 +18,16 @@ html,body{
 
 /* Header CSS */
 header{
-    /* background-color: gray; */
+    background: transparent;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    transition: background-color ease 0.6s;
+}
+header.black-bg{
+    background-color: rgb(20,20,20);
 }
 .header-cont{
     display: flex;
@@ -69,7 +78,7 @@ header{
 
 /* Movies Section */
 .movies-section{
-
+    margin: 41px 0;
 }
 
 .movie-section-heading{
@@ -118,6 +127,7 @@ header{
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 98vh; 
+    padding-top: 80px;
     position: relative;
 }
 .banner-content{
@@ -127,10 +137,11 @@ header{
 }
 .banner-title{
     color: white;
-    font-size: 84px;
+    font-size: 55px;
     line-height: 1.1;
     margin: 0;
     margin-bottom: 16px;
+    max-width: 40%;
 }
 .banner-info{
     margin-bottom: 14px;
@@ -144,6 +155,7 @@ header{
     font-size: 16.4px;
     color: white;
     line-height: 1.3;
+    max-width: 40%;
 }
 
 .action-button-cont{
@@ -193,5 +205,8 @@ header{
 @media (max-width:767px){
     .main-nav{
         display: none;
+    }
+    .banner-overview,.banner-title{
+        max-width: 100%;
     }
 }
