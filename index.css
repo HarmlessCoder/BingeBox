@@ -111,7 +111,19 @@ header{
     transition: transform linear 300ms;
 }
 
-
+.banner-content{
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.banner-title{
+    color: white;
+    font-size: 78px;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
 
 /* RESPONSIVE CSS */
 @media (max-width:767px){

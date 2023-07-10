@@ -55,12 +55,12 @@ function buildMoviesSection(list,categoryName){
     }).join('');
 
     const moviesSectionHTML = `
-    
-        <h2 class="movie-section-heading">${categoryName}<span class="explore-nudge">Explore All</span></h2>
-        <div class="movies-row">
-            ${moviesListHTML}
-        </div>
-    
+
+            <h2 class="movie-section-heading">${categoryName}<span class="explore-nudge">Explore All</span></h2>
+            <div class="movies-row">
+                ${moviesListHTML}
+            </div>
+            
     `
     // console.log(moviesSectionHTML);
 
