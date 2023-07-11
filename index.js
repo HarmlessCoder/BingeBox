@@ -6,7 +6,10 @@ const imgPath = "https://image.tmdb.org/t/p/original";
 const apiPaths = {
     fetchAllCategories: `${apiEndpoint}/genre/movie/list?api_key=${apikey}`,
     fetchMoviesList : (id) => `${apiEndpoint}/discover/movie?api_key=${apikey}&with_genres=${id}` ,
-    fetchTrending: `${apiEndpoint}/trending/all/day?api_key=${apikey}&language=en-US`
+    fetchTrending: `${apiEndpoint}/trending/all/day?api_key=${apikey}&language=en-US`   ,
+    // searchOnYoutube: (query) => `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query}&key=AIzaSyAT3by1LicJu7bp-bsF0_Qb9Swj6UWd8o8`  
+     searchOnYoutube: (query) => `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query}&key=AIzaSyBY5RnnWG2zR6nsJRTKbqiGOYMIpDe2Fq8`  
+    // searchOnYoutube: (query) => `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query}&key=AIzaSyBcQILW2lZ0HGMRgmzn1JumOnsy9J2lx4s`
 }
 
 // Boots up the app
@@ -80,8 +83,10 @@ function buildMoviesSection(list,categoryName){
     const moviesCont = document.getElementById('movies-cont');
     const moviesListHTML = list.map(item => {
         return `
-        <img class="movie-item" src="${imgPath}${item.backdrop_path}" alt="${item.title}">
-        `;
+        <div class="movie-item" onmouseenter="searchMovieTrailer('${item.title}', 'yt${item.id}')">
+            <img class="move-item-img" src="${imgPath}${item.backdrop_path}" alt="${item.title}" />
+            <div class="iframe-wrap" id="yt${item.id}"></div>
+        </div>`;
     }).join('');
 
     const moviesSectionHTML = `
@@ -101,6 +106,27 @@ function buildMoviesSection(list,categoryName){
     // append HTML into container
     moviesCont.append(div);
 }
+
+function searchMovieTrailer(movieName, iframId) {
+    if (!movieName) return;
+
+    fetch(apiPaths.searchOnYoutube(movieName))
+    .then(res => res.json())
+    .then(res => {
+        const bestResult = res.items[0];
+        
+        const elements = document.getElementById(iframId);
+        console.log(elements, iframId);
+
+        const div = document.createElement('div');
+        div.innerHTML = `<iframe width="245px" height="150px" src="https://www.youtube.com/embed/${bestResult.id.videoId}?autoplay=1&controls=0"></iframe>`
+
+        elements.append(div);
+        
+    })
+    .catch(err=>console.log(err));
+}
+
 
 
 window.addEventListener('load',function(){
