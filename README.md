@@ -40,6 +40,14 @@ Alternatively, you can download the project files directly from the repository's
 
 ## Preview
 1. Transparent navbar when showing the banner of a latest trending movie
+   ![Screenshot (240)](https://github.com/HarmlessCoder/BingeBox/assets/138828627/8c31ae7d-ec7c-44dd-8e89-24b6a18b46d1)
 2. On scrolling the navbar colour changes to black and becomes sticky.
+ ![Screenshot (241)](https://github.com/HarmlessCoder/BingeBox/assets/138828627/15331e0a-c64a-4a62-8947-b61cce24973a)
 3. Data is dynamic, every time we refresh we will get a new banner of a trending movie.
+![Screenshot (245)](https://github.com/HarmlessCoder/BingeBox/assets/138828627/df5337d1-051c-41ac-87c8-1ed546919d84)
 4. On hovering over a movie, the trailer of that movie will be played via YouTube API.
+
+
+https://github.com/HarmlessCoder/BingeBox/assets/138828627/51b84985-c3f4-4b95-bd87-a3028d3775e6
+
+
